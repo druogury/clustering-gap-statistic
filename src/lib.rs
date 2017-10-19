@@ -2,10 +2,13 @@
 
 extern crate pyo3;
 use pyo3::prelude::*;
+use pyo3::py::modinit;
 
 
-#[py::modinit(rust_gap)]
+#[modinit(rust_gap)]
 fn init_mod(py: Python, m: &PyModule) -> PyResult<()> {
+
+
 
     #[pyfn(m, "sum_as_string")]
     fn sum_as_string_py(a: i64, b: i64) -> PyResult<String> {
