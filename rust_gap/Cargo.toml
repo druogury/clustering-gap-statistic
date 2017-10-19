@@ -1,0 +1,11 @@
+[package]
+name = "gap-stat"
+version = "0.1.0"
+authors = ["Miles Granger <miles59923@gmail.com>"]
+
+[dependencies]
+pyo3 = { version = "0.2", features = ["extension-module"] }
+
+[lib]
+name = "rust2py"
+crate-type = ["cdylib"]
