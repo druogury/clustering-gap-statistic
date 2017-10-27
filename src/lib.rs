@@ -5,7 +5,7 @@ use pyo3::prelude::*;
 use pyo3::py::modinit;
 
 mod centroid;
-use centroid::{Centroid, Numeric};
+use centroid::{Centroid, KMeans};
 
 
 #[modinit(rust_gap)]
@@ -18,10 +18,9 @@ fn init_mod(py: Python, m: &PyModule) -> PyResult<()> {
     }
 
     #[pyfn(m, "optimalK")]
-    fn optimalk_py(x: Vec<f64>) -> PyResult<Vec<f64>> {
+    fn optimalk_py(x: Vec<Vec<f64>>) -> PyResult<Vec<u32>> {
 
-        let centroid: Centroid = Centroid::new(x);
-        let out: Vec<f64> = vec![5.0, 5.6];
+        let out: Vec<u32> = kmeans(2, x);
         Ok(out)
     }
 
@@ -30,4 +29,18 @@ fn init_mod(py: Python, m: &PyModule) -> PyResult<()> {
 
 fn sum_as_string(a: i64, b: i64) -> String {
     format!("{}", a + b).to_string()
+}
+
+fn kmeans(n_clusters: u32, X: Vec<Vec<f64>>) -> Vec<u32> {
+    /*
+        Implement of the KMeans algorithm
+    */
+    let mut centroids: Vec<Centroid> = Vec::new();
+    let mut record: Vec<f64>;
+
+    for (i, record) in X.enumerate() {
+        let centroid = Centroid::new(*record);
+    }
+    let labels: Vec<u32> = vec![1,2,1,2];
+    labels
 }
