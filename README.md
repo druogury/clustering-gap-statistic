@@ -14,8 +14,8 @@ using the gap statistic.
 #### Improvements
 - Correct dispersion formula (mean of log instead of log of mean)
 - Compute gap statistic's standard deviation
-- Add Scikit-learn KMeans and SphericalKMeans. 
-- Scipy kmeans2 looks very unstable, that's why it's not the default algorithm anymore.
+- Add Scikit-learn KMeans and SphericalKMeans
+- Scipy kmeans2 looks very unstable, that's why it's not the default algorithm anymore
 
 ---
 
