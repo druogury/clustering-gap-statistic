@@ -20,7 +20,7 @@ setup(name='gap-stat',
       zip_safe=True,
       install_requires=['numpy', 'pandas', 'scipy', 'spherecluster'],
       setup_requires=['pytest-runner'],
-      tests_require=['pytest', 'scikit-learn'],
+      tests_require=['coverage', 'pytest', 'scikit-learn'],
       classifiers=[
             'Programming Language :: Python :: 3',
             'Development Status :: 4 - Beta'
