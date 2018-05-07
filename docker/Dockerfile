@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 RUN apt update && apt upgrade -y
 RUN apt install wget build-essential gcc -y
 
-RUN wget https://repo.continuum.io/miniconda/Miniconda3-4.3.21-Linux-x86_64.sh -O miniconda.sh --no-check-certificate
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh --no-check-certificate
 RUN bash miniconda.sh -bf -p /anaconda
 RUN rm miniconda.sh
 ENV PATH /anaconda/bin:$PATH
