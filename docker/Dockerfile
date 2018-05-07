@@ -10,3 +10,4 @@ ENV PATH /anaconda/bin:$PATH
 RUN pip install --upgrade pip
 RUN pip install pytest coverage
 RUN conda install numpy pandas scikit-learn joblib -y
+RUN pip install spherecluster
