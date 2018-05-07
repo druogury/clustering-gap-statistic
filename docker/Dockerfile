@@ -8,5 +8,4 @@ RUN pip install pytest coverage
 RUN pip install numpy pandas scikit-learn joblib
 # RUN pip install spherecluster
 RUN git clone https://github.com/druogury/spherecluster.git
-RUN ls spherecluster
-RUN python spherecluster/setup.py install
+RUN cd spherecluster && python setup.py install
