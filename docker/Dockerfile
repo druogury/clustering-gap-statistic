@@ -13,3 +13,5 @@ RUN pip install pytest coverage
 RUN conda install python=3.5.0
 RUN conda install numpy pandas scikit-learn joblib -y
 RUN pip install spherecluster
+RUN which python
+RUN ls $HOME
