@@ -93,3 +93,35 @@ def test_dunders():
     optimalK.__str__()
     optimalK.__repr__()
     optimalK._repr_html_()
+
+
+def test_optimalk_random_sample_data():
+    """
+    Test random_sample_data output shape
+    """
+    from sklearn.datasets.samples_generator import make_blobs
+    from gap_statistic import random_sample_data
+
+    # Create data
+    X, y = make_blobs(n_samples=int(1e3), n_features=2, centers=3)
+
+    random_data = random_sample_data(X, random_sampling='uniform', output_image=None):
+    assert random_data.shape == X.shape, "check sampled data shape {} vs original data shape {}".format(X.shape, random_data.shape)    
+
+    random_data = random_sample_data(X, random_sampling='gaussian', output_image=None):
+    assert random_data.shape == X.shape, "check sampled data shape {} vs original data shape {}".format(X.shape, random_data.shape)    
+
+
+def test_optimalk_random_sample_data_value_error():
+    """
+    Test ValueError when passing random_sampling not in ['uniform', 'gaussian']
+    """
+    from sklearn.datasets.samples_generator import make_blobs
+    from gap_statistic import random_sample_data
+
+    # Create data
+    X, y = make_blobs(n_samples=int(1e3), n_features=2, centers=3)
+
+    with pytest.raises(ValueError) as excinfo:
+        _ = random_sample_data(X, random_sampling='whatever', output_image=None):
+    assert 'Unknown random_sampling argument' in str(excinfo.value)
