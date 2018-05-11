@@ -5,6 +5,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/druogury/clustering-gap-statistic/badge.svg)](https://coveralls.io/github/druogury/clustering-gap-statistic)
 [![Code Health](https://landscape.io/github/druogury/clustering-gap-statistic/master/landscape.svg?style=flat)](https://landscape.io/github/druogury/clustering-gap-statistic/master)
 
+Forked from [original repository](https://github.com/milesgranger/gap_statistic)
+
 ---
 #### Purpose
 Dynamically identify the suggested number of clusters in a data-set
