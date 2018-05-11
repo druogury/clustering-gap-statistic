@@ -105,10 +105,10 @@ def test_optimalk_random_sample_data():
     # Create data
     X, y = make_blobs(n_samples=int(1e3), n_features=2, centers=3)
 
-    random_data = random_sample_data(X, random_sampling='uniform', output_image=None):
+    random_data = random_sample_data(X, random_sampling='uniform')
     assert random_data.shape == X.shape, "check sampled data shape {} vs original data shape {}".format(X.shape, random_data.shape)    
 
-    random_data = random_sample_data(X, random_sampling='gaussian', output_image=None):
+    random_data = random_sample_data(X, random_sampling='gaussian')
     assert random_data.shape == X.shape, "check sampled data shape {} vs original data shape {}".format(X.shape, random_data.shape)    
 
 
@@ -123,5 +123,5 @@ def test_optimalk_random_sample_data_value_error():
     X, y = make_blobs(n_samples=int(1e3), n_features=2, centers=3)
 
     with pytest.raises(ValueError) as excinfo:
-        _ = random_sample_data(X, random_sampling='whatever', output_image=None):
+        _ = random_sample_data(X, random_sampling='whatever')
     assert 'Unknown random_sampling argument' in str(excinfo.value)
