@@ -17,16 +17,17 @@ def test_optimalk(parallel_backend, n_jobs, n_clusters):
     from sklearn.datasets.samples_generator import make_blobs
     from gap_statistic import OptimalK
 
-    # Create optimalK instance
-    optimalK = OptimalK(parallel_backend=parallel_backend, n_jobs=n_jobs)
-
     # Create data
     X, y = make_blobs(n_samples=int(1e3), n_features=2, centers=3)
 
-    suggested_clusters = optimalK(X, n_refs=3, cluster_array=np.arange(1, 10))
+    for algo in ['kmeans', 'kmeans2', 'skl-kmeans', 'sph-kmeans']:
+        # Create optimalK instance
+        optimalK = OptimalK(parallel_backend=parallel_backend, n_jobs=n_jobs, algo=algo)
 
-    assert np.allclose(suggested_clusters, n_clusters, 2), ('Correct clusters is {}, OptimalK suggested {}'
-                                                            .format(n_clusters, suggested_clusters))
+        suggested_clusters = optimalK(X, n_refs=3, cluster_array=np.arange(1, 10))
+
+        assert np.allclose(suggested_clusters, n_clusters, 2), \
+            ('Correct clusters is {}, OptimalK suggested {}'.format(n_clusters, suggested_clusters))
 
 
 def test_optimalk_cluster_array_vs_data_sizes_error():
