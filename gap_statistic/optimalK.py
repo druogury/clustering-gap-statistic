@@ -31,7 +31,6 @@ def random_sample_data(X: Union[pd.DataFrame, np.ndarray], random_sampling: str=
     """
     if not(random_sampling in ['uniform', 'gaussian']):
         raise ValueError('Unknown random_sampling argument: {}'.format(random_sampling))
-        return
 
     if type(X) is np.ndarray:
         X = pd.DataFrame(X)
